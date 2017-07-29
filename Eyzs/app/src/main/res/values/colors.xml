@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    //font color
+    <color name="fontColor1">#dcdcdc</color>
+    <color name="fontColor2">#afafaf</color>
+    <color name="fontColor3">#878787</color>
+    <color name="fontColor4">#505050</color>
+    <color name="fontColor5">#00beff</color>
+    <color name="fontColor6">#b4a000</color>
+    <color name="fontColor7">#e61450</color>
+    <color name="fontColor8">#9664c8</color>
+    <color name="fontColor9">#00a08c</color>
+
+    //bg color
+    <color name="bgColor1">#dcdcdc</color>
+    <color name="bgColor2">#373737</color>
+    <color name="bgColor3">#323232</color>
+    <color name="bgColor4">#2d2d2d</color>
+    <color name="bgColor5">#282828</color>
+    <color name="bgColor6">#232323</color>
+    <color name="bgColor7">#191919</color>
+    <color name="bgColor8">#00a08c</color>
+    <color name="bgColor9">#9664c8</color>
+    <color name="bgColor10">#00beff</color>
+    <color name="bgColor11">#b4a000</color>
+    <color name="bgColor12">#e61450</color>
+    <color name="bgColor13">#3c3c3c</color>
+    <color name="bgColor14">#afafaf</color>
+    <color name="bgColor15">#878787</color>
+    <color name="bgColor16">#505050</color>
+    <color name="bgColor17">#642d41</color>
+
+    <color name="write">#ffffff</color>
+    <color name="write50">#80ffffff</color>
+    <color name="transparent">#00000000</color>
+
+
+</resources>
