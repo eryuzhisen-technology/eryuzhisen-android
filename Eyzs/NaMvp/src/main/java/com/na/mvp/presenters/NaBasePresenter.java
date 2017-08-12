@@ -1,6 +1,7 @@
 package com.na.mvp.presenters;
 
 import com.na.mvp.contracts.NaContract;
+import com.na.mvp.rxbus.NaRxBus;
 
 /**
  * @actor:taotao
@@ -17,11 +18,20 @@ public class NaBasePresenter <T extends NaContract.View, E extends NaContract.Mo
     }
 
     public void start() {
-
+        if(isRegisterNaRxBus()){
+            NaRxBus.get().register(this);
+        }
     }
 
     public void destroy() {
         view = null;
         model = null;
+        if(isRegisterNaRxBus()){
+            NaRxBus.get().unregister(this);
+        }
+    }
+
+    public boolean isRegisterNaRxBus(){
+        return false;
     }
 }

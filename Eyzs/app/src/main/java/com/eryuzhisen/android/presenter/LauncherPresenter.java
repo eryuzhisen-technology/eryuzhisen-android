@@ -6,8 +6,8 @@ import android.os.Message;
 
 import com.eryuzhisen.android.contract.LauncherContract;
 import com.eryuzhisen.android.model.LauncherModel;
-import com.eryuzhisen.android.rxbus.NaRxBus;
 import com.na.mvp.presenters.NaBasePresenter;
+import com.na.mvp.rxbus.NaRxBus;
 
 /**
  * @actor:taotao

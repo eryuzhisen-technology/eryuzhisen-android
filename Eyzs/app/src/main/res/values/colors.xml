@@ -37,6 +37,7 @@
     <color name="write">#ffffff</color>
     <color name="write50">#80ffffff</color>
     <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
 
 
 </resources>

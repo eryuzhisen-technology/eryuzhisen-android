@@ -30,6 +30,7 @@
         android:textColor="@color/write"
         android:textSize="@dimen/fontSize9"
         android:textStyle="bold"
+        android:visibility="gone"
         android:textAlignment="center"
         android:background="@drawable/bg_startbutton"
         android:layout_alignParentBottom="true"

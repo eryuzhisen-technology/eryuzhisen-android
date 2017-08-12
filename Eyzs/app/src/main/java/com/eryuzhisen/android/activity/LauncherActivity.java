@@ -27,10 +27,9 @@ public class LauncherActivity extends NaBaseActivity<LauncherPresenter> implemen
 
     @Override
     public void onLauncherFinish() {
+        ActivityManager.getInstance().jumpToActivity(this, ActivityManager.main);
         if(SharePrefenceUtil.isWecomeOption()){
             ActivityManager.getInstance().jumpToActivity(this, ActivityManager.wecome);
-        } else {
-            ActivityManager.getInstance().jumpToActivity(this, ActivityManager.main);
         }
         finish();
     }

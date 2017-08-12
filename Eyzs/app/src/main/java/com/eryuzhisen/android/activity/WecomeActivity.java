@@ -43,18 +43,17 @@ public class WecomeActivity extends NaBaseActivity<WecomePresenter> implements W
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 piIndicator.setSelection(position);
-                if(position == mAdapter.getCount() - 1){
-                    piIndicator.setVisibility(View.GONE);
-                    btStart.setVisibility(View.VISIBLE);
-                } else {
-                    piIndicator.setVisibility(View.VISIBLE);
-                    btStart.setVisibility(View.GONE);
-                }
             }
 
             @Override
             public void onPageSelected(int position) {
-
+                if(position == mAdapter.getCount() - 1){
+//                    piIndicator.setVisibility(View.GONE);
+                    btStart.setVisibility(View.VISIBLE);
+                } else {
+//                    piIndicator.setVisibility(View.VISIBLE);
+                    btStart.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -74,7 +73,6 @@ public class WecomeActivity extends NaBaseActivity<WecomePresenter> implements W
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btStart: {
-                ActivityManager.getInstance().jumpToActivity(this, ActivityManager.main);
                 finish();
                 break;
             }

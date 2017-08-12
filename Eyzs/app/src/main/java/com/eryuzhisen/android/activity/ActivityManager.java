@@ -55,4 +55,5 @@ public final class ActivityManager {
         Intent intent = new Intent(activity, getActivityClass(nextActivityName));
         activity.startActivity(intent);
     }
+    
 }

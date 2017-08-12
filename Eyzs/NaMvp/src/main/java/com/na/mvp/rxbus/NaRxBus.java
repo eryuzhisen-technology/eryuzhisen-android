@@ -1,4 +1,5 @@
-package com.eryuzhisen.android.rxbus;
+package com.na.mvp.rxbus;
+
 
 import com.hwangjr.rxbus.Bus;
 
