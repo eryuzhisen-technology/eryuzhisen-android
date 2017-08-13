@@ -4,11 +4,21 @@
     android:layout_height="match_parent"
     tools:context="com.eryuzhisen.android.fragment.MessageFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="消息" />
+    <com.eryuzhisen.android.widget.EyzsTitleView
+        android:id="@+id/etvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlListView"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/etvTitle">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
 

@@ -8,6 +8,7 @@ import com.eryuzhisen.android.R;
 import com.eryuzhisen.android.adapter.WecomeAdapter;
 import com.eryuzhisen.android.contract.WecomeContract;
 import com.eryuzhisen.android.presenter.WecomePresenter;
+import com.eryuzhisen.android.utils.SharePrefenceUtil;
 import com.eryuzhisen.android.widget.MyPageIndicator;
 import com.na.mvp.base.NaBaseActivity;
 
@@ -73,6 +74,7 @@ public class WecomeActivity extends NaBaseActivity<WecomePresenter> implements W
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btStart: {
+                SharePrefenceUtil.saveWecomeOption();
                 finish();
                 break;
             }

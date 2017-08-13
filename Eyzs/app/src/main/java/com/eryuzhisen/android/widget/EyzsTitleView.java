@@ -83,4 +83,17 @@ public class EyzsTitleView extends RelativeLayout {
     public ImageView getButton1() {
         return ivButton1;
     }
+
+    public void setButton1ImageResource(int resId, OnClickListener listener) {
+        this.ivButton1.setImageResource(resId);
+        this.ivButton1.setOnClickListener(listener);
+        this.ivButton1.setVisibility(VISIBLE);
+    }
+
+    public void setButton2ImageResource(int resId, OnClickListener listener) {
+        this.ivButton2.setImageResource(resId);
+        this.ivButton2.setOnClickListener(listener);
+        this.ivButton2.setVisibility(VISIBLE);
+    }
+
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/bgColor2">
+
+    <TextView
+        android:id="@+id/tvTab1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/fontColor2"
+        android:lines="1"
+        android:textSize="@dimen/fontSize4" />
+
+    <TextView
+        android:id="@+id/tvTab2"
+        android:layout_toRightOf="@+id/tvTab1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/fontColor2"
+        android:lines="1"
+        android:textSize="@dimen/fontSize4" />
+
+    <View
+        android:id="@+id/vLine"
+        android:layout_alignLeft="@+id/tvTab1"
+        android:layout_width="30dp"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/fontColor2"/>
+
+</RelativeLayout>

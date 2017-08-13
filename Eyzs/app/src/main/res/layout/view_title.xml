@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
-
         android:textColor="@color/fontColor1"
         android:textSize="@dimen/fontSize8" />
 
@@ -20,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@+id/tvTitle"
         android:src="@mipmap/icon_brand" />
 
     <ImageView
