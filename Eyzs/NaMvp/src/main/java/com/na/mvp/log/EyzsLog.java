@@ -1,8 +1,9 @@
-package com.eryuzhisen.android.log;
+package com.na.mvp.log;
 
 import android.util.Log;
 
-import com.eryuzhisen.android.BuildConfig;
+import com.na.mvp.BuildConfig;
+
 
 /**
  * @actor:taotao

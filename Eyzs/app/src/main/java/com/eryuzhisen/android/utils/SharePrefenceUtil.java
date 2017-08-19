@@ -14,7 +14,7 @@ public class SharePrefenceUtil {
     private static final String EyzsConfig_WecomeOption = "wecome_option";
 
     public static boolean isWecomeOption() {
-        SharedPreferences preferences = EyzsApplication.getEyzsApp().getSharedPreferences(EyzsConfig, Context.MODE_PRIVATE);
+        SharedPreferences preferences = EyzsApplication.getApp().getSharedPreferences(EyzsConfig, Context.MODE_PRIVATE);
         if (preferences != null && preferences.contains(EyzsConfig_WecomeOption)) {
             return false;
         }
@@ -22,7 +22,7 @@ public class SharePrefenceUtil {
     }
 
     public static void saveWecomeOption() {
-        SharedPreferences preferences = EyzsApplication.getEyzsApp().getSharedPreferences(EyzsConfig, Context.MODE_PRIVATE);
+        SharedPreferences preferences = EyzsApplication.getApp().getSharedPreferences(EyzsConfig, Context.MODE_PRIVATE);
         if (preferences != null) {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean(EyzsConfig_WecomeOption, true);

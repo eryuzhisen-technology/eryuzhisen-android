@@ -19,7 +19,7 @@ public class NaBasePresenter <T extends NaContract.View, E extends NaContract.Mo
 
     public void start() {
         if(isRegisterNaRxBus()){
-            NaRxBus.get().register(this);
+            NaRxBus.getRxBus().register(this);
         }
     }
 
@@ -27,7 +27,7 @@ public class NaBasePresenter <T extends NaContract.View, E extends NaContract.Mo
         view = null;
         model = null;
         if(isRegisterNaRxBus()){
-            NaRxBus.get().unregister(this);
+            NaRxBus.getRxBus().unregister(this);
         }
     }
 

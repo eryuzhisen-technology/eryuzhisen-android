@@ -3,7 +3,7 @@ package com.eryuzhisen.android.activity;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.eryuzhisen.android.log.EyzsLog;
+import com.na.mvp.log.EyzsLog;
 
 import java.util.HashMap;
 import java.util.Map;
