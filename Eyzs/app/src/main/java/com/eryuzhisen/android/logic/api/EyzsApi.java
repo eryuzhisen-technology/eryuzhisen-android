@@ -9,10 +9,10 @@ import java.util.Map;
  */
 
 public class EyzsApi {
-    private final static String Https = "Https://";
-    private final static String Http = "Http://";
+    private final static String Https = "https://";
+    private final static String Http = "http://";
     private final static String Host = "api.eryuzhisen.com";
-    private final static String Path = "/java/eryuzhisen-server";
+    private final static String Path = "/java/eryuzhisen-server/";
 
     public final static String UrlDataKeyHomeBanner = "HomeBanner";
 
@@ -274,7 +274,7 @@ public class EyzsApi {
     //URL:http://api.eryuzhisen.com/eryuzhisen-server/auth/getPicVerifyCode
     private UrlData getBannerUrl() {
         String key = UrlDataKeyHomeBanner;
-        String url = getBaseUrl() + "/getHomeBanner";
+        String url = getBaseUrl() + "getHomeBanner";
         String nettype = UrlData.TypeHttpGet;
         UrlData data = new UrlData(key, url, nettype);
         return data;
@@ -283,7 +283,7 @@ public class EyzsApi {
     //2.获取图形验证码
     private UrlData getPicVerifyCode() {
         String key = UrlDataKeyPicVerifyCode;
-        String url = getBaseUrl() + "/auth/getPicVerifyCode";
+        String url = getBaseUrl() + "auth/getPicVerifyCode";
         String nettype = UrlData.TypeHttpGet;
         UrlData data = new UrlData(key, url, nettype);
         return data;

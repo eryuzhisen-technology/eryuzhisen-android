@@ -12,6 +12,14 @@ public abstract class BaseEntity {
 
     public static final int EntityType_SetItem = 1;
     public static final int EntityType_SetInterval = 2;
+    public static final int EntityType_LoginPhone = 3;
+    public static final int EntityType_LoginPassword = 4;
+    public static final int EntityType_LoginPicVcode = 5;
+    public static final int EntityType_LoginMsgVcode = 6;
+    public static final int EntityType_LoginText = 7;
+    public static final int EntityType_LoginButton = 8;
+
+
 
     public abstract int getEntityType();
 
@@ -24,6 +32,29 @@ public abstract class BaseEntity {
             }
             case EntityType_SetInterval:{
                 holder = SetIntervalEntity.onCreateViewHolder(parent);
+                break;
+            }
+            case EntityType_LoginPhone:{
+                holder = PhoneEntity.onCreateViewHolder(parent);
+                break;
+            }
+            case EntityType_LoginPassword:{
+                holder = PasswordEntity.onCreateViewHolder(parent);
+                break;
+            }case EntityType_LoginPicVcode:{
+                holder = PicVcodeEntity.onCreateViewHolder(parent);
+                break;
+            }
+            case EntityType_LoginMsgVcode:{
+                holder = MsgVcodeEntity.onCreateViewHolder(parent);
+                break;
+            }
+            case EntityType_LoginText:{
+                holder = LoginTextEntity.onCreateViewHolder(parent);
+                break;
+            }
+            case EntityType_LoginButton:{
+                holder = LoginButtonEntity.onCreateViewHolder(parent);
                 break;
             }
             default:{

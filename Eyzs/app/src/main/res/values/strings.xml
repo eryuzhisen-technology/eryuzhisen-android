@@ -15,6 +15,23 @@
     <string name="feedback">意见反馈</string>
     <string name="support_and_help">支持和帮助</string>
     <string name="join_qq_group">加入qq群：45851314</string>
+    <string name="login_str">已有账号  立即登录</string>
+    <string name="register_str">注册</string>
+    <string name="register_account">注册账户</string>
+    <string name="hint_phone">手机号</string>
+    <string name="hint_password">密码</string>
+    <string name="hint_picture">图形码</string>
+    <string name="hint_msg_vcode">验证码</string>
+    <string name="get_vcode">获取验证码</string>
+    <string name="get_pic_vcode">获取图形码</string>
+    <string name="register_protocol">点击注册按钮即表示同意并遵守耳语之森的 用户协议 和 隐私政策</string>
+    <string name="immediately_register">立即注册</string>
+    <string name="immediately_login">立即登录</string>
+    <string name="save_login">保存并登录</string>
+    <string name="login">登录</string>
+    <string name="forgot_password">忘记密码</string>
+    <string name="get_password">找回密码</string>
+    <string name="new_password">新密码</string>
 
 
 </resources>

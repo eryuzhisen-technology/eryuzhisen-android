@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:background="@drawable/bg_loginbutton_selected">
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:hint="@string/hint_phone"
+        android:inputType="number"
+        android:maxLength="11"
+        android:drawablePadding="10dp"
+        android:lines="1"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/fontColor2"
+        android:textColorHint="@color/fontColor4"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/fontSize5" />
+</RelativeLayout>
+
+
+
+

@@ -1,5 +1,6 @@
 package com.eryuzhisen.android.logic.request;
 
+import com.eryuzhisen.android.utils.StringUtils;
 import com.na.mvp.net.response.LogicBaseResp;
 
 /**
@@ -17,4 +18,22 @@ public class EyzsBaseResp extends LogicBaseResp {
     private String errcode;
     private String errinfo;
 
+    public String getRet() {
+        return ret;
+    }
+
+    public String getErrcode() {
+        return errcode;
+    }
+
+    public String getErrinfo() {
+        return errinfo;
+    }
+
+    public boolean isSuccess() {
+        if (!StringUtils.isEmpty(ret) && ret.equals("0")) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+
+    <Button
+        android:id="@+id/tvButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_loginbutton_default"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textAlignment="center"
+        android:textColor="@color/fontColor1"
+        android:textStyle="bold"
+        android:lineSpacingExtra="5dp"
+        android:textSize="@dimen/fontSize6" />
+</RelativeLayout>
+
+
+
+

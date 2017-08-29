@@ -19,6 +19,7 @@ public class NaApp extends MultiDexApplication {
             // You should not init your app in this process.
             LeakCanary.install(this);
         }
+        sApp = this;
 
     }
 

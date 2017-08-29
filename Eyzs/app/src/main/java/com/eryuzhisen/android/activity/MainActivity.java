@@ -126,7 +126,7 @@ public class MainActivity extends NaBaseActivity<MainPresenter> implements MainC
         }
 
         onChangeFragment(fragment);
-
+        ActivityManager.getInstance().jumpToActivity(this, ActivityManager.login_signup);
     }
 
     private void enterWriting() {

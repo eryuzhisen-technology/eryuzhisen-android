@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.na.mvp.NaApp;
+import com.na.mvp.log.NaLog;
 import com.na.mvp.net.request.LogicBaseReq;
 import com.na.mvp.rxbus.NaRxBus;
 import com.na.mvp.utils.NetUtils;
@@ -28,15 +29,21 @@ import javax.net.ssl.X509TrustManager;
 
 import okhttp3.FormBody;
 import okhttp3.Headers;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by joy on 16/9/21.
  */
 public class OkHttp {
+    private static final String TAG = "OkHttp";
+    private static final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
+
+
     private static OkHttp ourInstance = new OkHttp();
 
     public static OkHttp getInstance() {
@@ -84,11 +91,13 @@ public class OkHttp {
             }
         };
         client = new OkHttpClient.Builder()
-                .connectTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(interceptor)
+                .connectTimeout(30, TimeUnit.SECONDS)
 //        .writeTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
                 .sslSocketFactory(sslContext.getSocketFactory(), xtm)
                 .build();
+
     }
 
     public void request(LogicBaseReq req) {
@@ -121,36 +130,55 @@ public class OkHttp {
         }
         if (req.getMethod() == LogicBaseReq.HTTP_POST) {
 //            builder.post(RequestBody.create(MediaType.parse(req.getContentType()),req.getHttpEntity()));
-            FormBody.Builder formBodyBuilder = new FormBody.Builder();
-            if (req.getNameValueParams().size() > 0) {
-                for (Map.Entry<String, String> param : req.getNameValueParams().entrySet()) {
-                    String name = param.getKey();
-                    String value = param.getValue();
-                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(value)) {
-                        formBodyBuilder.add(name, value);
-                        System.out.println("参数: " + name + ":" + value);
-                    }
+//            FormBody.Builder formBodyBuilder = new FormBody.Builder();
+//            if (req.getNameValueParams().size() > 0) {
+//                for (Map.Entry<String, String> param : req.getNameValueParams().entrySet()) {
+//                    String name = param.getKey();
+//                    String value = param.getValue();
+//                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(value)) {
+//                        formBodyBuilder.add(name, value);
+//                        System.out.println("参数: " + name + ":" + value);
+//                    }
+//
+//                }
+//            }
 
-                }
-            }
-            RequestBody formBody = formBodyBuilder.build();
+//            RequestBody formBody = formBodyBuilder.build();
+            RequestBody formBody = RequestBody.create(MediaType.parse(req.getContentType()),req.getHttpEntity());
             builder.post(formBody);
         } else if (req.getMethod() == LogicBaseReq.HTTP_PUT) {
 
-            FormBody.Builder formBodyBuilder = new FormBody.Builder();
-            if (req.getNameValueParams().size() > 0) {
-                for (Map.Entry<String, String> param : req.getNameValueParams().entrySet()) {
-                    String name = param.getKey();
-                    String value = TextUtils.isEmpty(param.getValue()) ? "" : param.getValue();
-//                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(value)){
-                    formBodyBuilder.add(name, value);
-                    System.out.println("参数: " + name + ":" + value);
-//                    }
-
-                }
-            }
-            RequestBody formBody = formBodyBuilder.build();
+//            FormBody.Builder formBodyBuilder = new FormBody.Builder();
+//            if (req.getNameValueParams().size() > 0) {
+//                for (Map.Entry<String, String> param : req.getNameValueParams().entrySet()) {
+//                    String name = param.getKey();
+//                    String value = TextUtils.isEmpty(param.getValue()) ? "" : param.getValue();
+////                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(value)){
+//                    formBodyBuilder.add(name, value);
+//                    System.out.println("参数: " + name + ":" + value);
+////                    }
+//
+//                }
+//            }
+//            RequestBody formBody = formBodyBuilder.build();
+            RequestBody formBody = RequestBody.create(MediaType.parse(req.getContentType()),req.getHttpEntity());
             builder.put(formBody);
+        } else if (req.getMethod() == LogicBaseReq.HTTP_DELETE){
+//            FormBody.Builder formBodyBuilder = new FormBody.Builder();
+//            if (req.getNameValueParams().size() > 0) {
+//                for (Map.Entry<String, String> param : req.getNameValueParams().entrySet()) {
+//                    String name = param.getKey();
+//                    String value = TextUtils.isEmpty(param.getValue()) ? "" : param.getValue();
+////                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(value)){
+//                    formBodyBuilder.add(name, value);
+//                    System.out.println("参数: " + name + ":" + value);
+////                    }
+//
+//                }
+//            }
+//            RequestBody formBody = formBodyBuilder.build();
+            RequestBody formBody = RequestBody.create(MediaType.parse(req.getContentType()),req.getHttpEntity());
+            builder.delete(formBody);
         }
         builder.tag(req);
         return builder.build();
@@ -189,13 +217,13 @@ public class OkHttp {
         Response response = null;
         String respStr = null;
         try {
-            System.out.println("naRxbus-http发起请求 url-" + request.url().toString());
+            NaLog.d(TAG, "naRxbus-http发起请求 url-" + request.url().toString());
             response = client.newCall(request).execute();
             respStr = new String(response.body().bytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("naRxbus-http返回值 url-" + request.url().toString() + " 返回值" + respStr);
+        NaLog.d(TAG, "naRxbus-http返回值 url-" + request.url().toString() + " 返回值" + respStr);
         sendResponseToAsyn(request, respStr);
     }
 

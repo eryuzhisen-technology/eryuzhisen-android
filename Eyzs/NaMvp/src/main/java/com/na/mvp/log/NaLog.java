@@ -10,7 +10,7 @@ import com.na.mvp.BuildConfig;
  * @DATE: 16/10/14
  */
 
-public class EyzsLog {
+public class NaLog {
 
     /**
      * Priority constant for the println method; use Log.v.

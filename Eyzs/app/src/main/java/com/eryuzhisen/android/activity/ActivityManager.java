@@ -3,7 +3,7 @@ package com.eryuzhisen.android.activity;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.na.mvp.log.EyzsLog;
+import com.na.mvp.log.NaLog;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +19,15 @@ public final class ActivityManager {
     public static String launcher = "launcher";
     public static String main = "main";
     public static String wecome = "wecome";
+    public static String login = "login";
+    public static String login_signup = "login_signup";
+    public static String register = "register";
+    public static String reset_password = "reset_password";
 
     private static ActivityManager sInstance;
     private static Map<String, Class> mActivityMap = null;
+
+
 
     public static ActivityManager getInstance() {
 
@@ -42,6 +48,10 @@ public final class ActivityManager {
             mActivityMap.put(launcher, LauncherActivity.class);
             mActivityMap.put(main, MainActivity.class);
             mActivityMap.put(wecome, WecomeActivity.class);
+            mActivityMap.put(login, LoginActivity.class);
+            mActivityMap.put(login_signup, LoginSignupActivity.class);
+            mActivityMap.put(register, RegisterActivity.class);
+            mActivityMap.put(reset_password, ResetPasswordActivity.class);
         }
     }
 
@@ -51,7 +61,7 @@ public final class ActivityManager {
 
 
     public void jumpToActivity(Activity activity, String nextActivityName) {
-        EyzsLog.e(TAG, "jumpToActivity next=" + nextActivityName);
+        NaLog.e(TAG, "jumpToActivity next=" + nextActivityName);
         Intent intent = new Intent(activity, getActivityClass(nextActivityName));
         activity.startActivity(intent);
     }

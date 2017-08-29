@@ -13,6 +13,7 @@ public abstract class LogicBaseReq implements Serializable {
     public static final int HTTP_GET = 0;
     public static final int HTTP_POST = 1;
     public static final int HTTP_PUT = 2;
+    public static final int HTTP_DELETE = 3;
     private static final long serialVersionUID = 3847698786992680183L;
 
     private transient HashMap<String,String> headers = new HashMap<>();

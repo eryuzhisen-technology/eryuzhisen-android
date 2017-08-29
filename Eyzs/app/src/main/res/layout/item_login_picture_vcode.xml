@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:background="@drawable/bg_loginbutton_selected">
+
+
+    <TextView
+        android:id="@+id/tvVcode"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/fontColor2"
+        android:textSize="@dimen/fontSize3"
+        android:text="@string/get_pic_vcode"
+        android:layout_marginRight="10dp"
+        android:padding="5dp" />
+    <ImageView
+        android:id="@+id/ivVcodeImg"
+        android:minWidth="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/etPicVcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/ivVcodeImg"
+        android:background="@null"
+        android:drawablePadding="10dp"
+        android:hint="@string/hint_picture"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLength="6"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/fontColor2"
+        android:textColorHint="@color/fontColor4"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/fontSize5" />
+</RelativeLayout>
+
+
+
+
