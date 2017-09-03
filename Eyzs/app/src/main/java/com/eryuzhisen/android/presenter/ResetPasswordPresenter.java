@@ -20,6 +20,12 @@ import java.util.List;
 public class ResetPasswordPresenter extends NaBasePresenter<ResetPasswordContract.View, ResetPasswordModel> implements ResetPasswordContract.Presenter {
     private String picCode = null;
     private String picCodeId = null;
+
+    @Override
+    public boolean isRegisterNaRxBus() {
+        return true;
+    }
+
     @Override
     public List getData() {
         return model.getData();
@@ -29,6 +35,7 @@ public class ResetPasswordPresenter extends NaBasePresenter<ResetPasswordContrac
     public void updateData() {
         this.view.onUpdate();
     }
+
 
     @Override
     public void resetPassword(String phone, String pwd, String msgCode) {
