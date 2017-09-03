@@ -3,10 +3,15 @@ package com.eryuzhisen.android.logic;
 import android.os.Message;
 
 import com.eryuzhisen.android.common.EyzsUserInfo;
+import com.eryuzhisen.android.logic.bean.EyzsUserBean;
+import com.eryuzhisen.android.logic.event.BaseEvent;
 import com.eryuzhisen.android.logic.event.LoginEvent;
+import com.eryuzhisen.android.logic.event.MsgVcodeEvent;
 import com.eryuzhisen.android.logic.event.PicVcodeEvent;
 import com.eryuzhisen.android.logic.api.EyzsApi;
 import com.eryuzhisen.android.logic.api.UrlData;
+import com.eryuzhisen.android.logic.event.RegisterEvent;
+import com.eryuzhisen.android.logic.event.ResetPwdEvent;
 import com.eryuzhisen.android.logic.request.PackageLogin;
 import com.eryuzhisen.android.logic.request.PackagePhoneVerifyCode;
 import com.eryuzhisen.android.logic.request.PackagePicVerifyCode;
@@ -51,6 +56,7 @@ public class LogicLogin extends CoreHandler {
 
     @Override
     public void onMainThread(Message msg) {
+        BaseEvent event = null;
         switch (msg.what) {
             case Constants.CommandLogin: {
                 isLogin = false;
@@ -59,62 +65,87 @@ public class LogicLogin extends CoreHandler {
                     PackageLogin.EyzsLoginResp resp = (PackageLogin.EyzsLoginResp) msg.obj;
                     isSuc = resp.isSuccess();
                     SharePrefenceUtil.setSession(resp.getToken(), resp.getDevice_no());
-                    if(!StringUtils.isEmpty(resp.getUid()) && resp.getUser() != null){
-                        String uid = resp.getUid();
-                        String nickName = resp.getUser().getNick_name();
-                        String avatar = resp.getUser().getAvatar_url();
-                        String gender = resp.getUser().getGender();
-                        String deviceNo = resp.getUser().getDevice_no();
-                        String signature = resp.getUser().getSignature();
-                        String age = resp.getUser().getC_age();
-                        EyzsUserInfo info = new EyzsUserInfo(uid, nickName, gender, avatar);
-                        info.setAge(age);
-                        info.setDeviceNo(deviceNo);
-                        info.setSignature(signature);
-                        SharePrefenceUtil.setUserInfo(info);
-                    }
-
+                    saveUserInfo(resp.getUid(), resp.getUser());
                 }
-                LoginEvent event = new LoginEvent();
+                event = new LoginEvent();
                 event.setSuccess(isSuc);
-                NaRxBus.getRxBus().post(event);
                 break;
             }
             case Constants.CommandRegister: {
                 isRegister = false;
-                PackageRegister.EyzsRegisterResp resp = (PackageRegister.EyzsRegisterResp) msg.obj;
+                boolean isSuc = false;
+                if(msg.obj != null){
+                    PackageRegister.EyzsRegisterResp resp = (PackageRegister.EyzsRegisterResp) msg.obj;
+                    isSuc = resp.isSuccess();
+                    SharePrefenceUtil.setSession(resp.getToken(), resp.getDevice_no());
+                    saveUserInfo(resp.getUid(), resp.getUser());
+                }
+
+                event = new RegisterEvent();
+                event.setSuccess(isSuc);
                 break;
             }
             case Constants.CommandPicVerifyCode: {
                 isGetPicVcode = false;
-                PackagePicVerifyCode.EyzsPicVerifyCodeResp resp = null;
+                PicVcodeEvent pe = new PicVcodeEvent();
                 if (msg.obj != null) {
-                    resp = (PackagePicVerifyCode.EyzsPicVerifyCodeResp) msg.obj;
+                    PackagePicVerifyCode.EyzsPicVerifyCodeResp resp = (PackagePicVerifyCode.EyzsPicVerifyCodeResp) msg.obj;
+                    if (resp.isSuccess()) {
+                        pe.setSuccess(true);
+                        pe.setPicVcode(resp.getPic_vcode());
+                        pe.setVcodeId(resp.getPic_vid());
+                    }
                 }
-
-                PicVcodeEvent event = new PicVcodeEvent();
-                if (resp != null && resp.isSuccess()) {
-                    event.setSuccess(true);
-                    event.setPicVcode(resp.getPic_vcode());
-                    event.setVcodeId(resp.getPic_vid());
-
-                }
-                NaRxBus.getRxBus().post(event);
+                event = pe;
                 break;
             }
             case Constants.CommandPhoneVerifyCode: {
                 isGetMsgVcode = false;
-                PackagePhoneVerifyCode.EyzsPhoneVerifyCodeResp resp = (PackagePhoneVerifyCode.EyzsPhoneVerifyCodeResp) msg.obj;
+                boolean isSuc = false;
+                if (msg.obj != null) {
+                    PackagePhoneVerifyCode.EyzsPhoneVerifyCodeResp resp = (PackagePhoneVerifyCode.EyzsPhoneVerifyCodeResp) msg.obj;
+                    if (resp.isSuccess()) {
+                        isSuc = true;
+                    }
+                }
+                MsgVcodeEvent me = new MsgVcodeEvent();
+                me.setSuccess(isSuc);
+                event = me;
                 break;
             }
             case Constants.CommandResetPassword: {
                 isResetPassword = false;
-                PackageResetPassword.EyzsResetPasswordResp resp = (PackageResetPassword.EyzsResetPasswordResp) msg.obj;
+                event = new ResetPwdEvent();
+                if (msg.obj != null) {
+                    PackageResetPassword.EyzsResetPasswordResp resp = (PackageResetPassword.EyzsResetPasswordResp) msg.obj;
+                    event.setSuccess(resp.isSuccess());
+                }
                 break;
             }
             default: {
                 break;
             }
+        }
+
+        if(event != null){
+            NaRxBus.getRxBus().post(event);
+        }
+    }
+
+    private void saveUserInfo(String userid, EyzsUserBean user){
+        if(!StringUtils.isEmpty(userid) && user != null){
+            String uid = userid;
+            String nickName = user.getNick_name();
+            String avatar = user.getAvatar_url();
+            String gender = user.getGender();
+            String deviceNo = user.getDevice_no();
+            String signature = user.getSignature();
+            String age = user.getC_age();
+            EyzsUserInfo info = new EyzsUserInfo(uid, nickName, gender, avatar);
+            info.setAge(age);
+            info.setDeviceNo(deviceNo);
+            info.setSignature(signature);
+            SharePrefenceUtil.setUserInfo(info);
         }
     }
 

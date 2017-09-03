@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.eryuzhisen.android.R;
 import com.eryuzhisen.android.contract.RegisterContract;
 import com.eryuzhisen.android.presenter.RegisterPresenter;
+import com.eryuzhisen.android.utils.ToastUtil;
 import com.eryuzhisen.android.widget.EyzsSubTitleView;
 import com.na.mvp.base.NaBaseActivity;
 import com.na.mvp.glide.NaGlide;
@@ -175,6 +176,28 @@ public class RegisterActivity extends NaBaseActivity<RegisterPresenter> implemen
     public void onPicVcode(byte[] img) {
         if(img != null) {
             NaGlide.with(this).load(img).into(ivVcodeImg);
+        } else {
+            ToastUtil.showTextShort("PicVcode failed");
+        }
+    }
+
+    @Override
+    public void onMsgVcode(boolean isSuccess) {
+        if (isSuccess) {
+            ToastUtil.showTextShort("msg code ok");
+        } else {
+            ToastUtil.showTextShort("msg code failed");
+        }
+    }
+
+    @Override
+    public void onRegister(boolean isSuccess) {
+        if (isSuccess) {
+            ToastUtil.showTextShort("Register ok");
+            ActivityManager.getInstance().jumpToActivity(this, ActivityManager.main);
+            finish();
+        } else {
+            ToastUtil.showTextShort("Register failed");
         }
     }
 

@@ -98,6 +98,7 @@ public class PackageRegister {
 //        }
         private String token;
         private String device_no;
+        private String uid;
         private EyzsUserBean user;
 
         public String getToken() {
@@ -110,6 +111,10 @@ public class PackageRegister {
 
         public EyzsUserBean getUser() {
             return user;
+        }
+
+        public String getUid() {
+            return uid;
         }
     }
 

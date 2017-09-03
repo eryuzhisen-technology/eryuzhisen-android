@@ -2,7 +2,9 @@ package com.eryuzhisen.android.presenter;
 
 import com.eryuzhisen.android.contract.RegisterContract;
 import com.eryuzhisen.android.logic.LogicLogin;
+import com.eryuzhisen.android.logic.event.MsgVcodeEvent;
 import com.eryuzhisen.android.logic.event.PicVcodeEvent;
+import com.eryuzhisen.android.logic.event.RegisterEvent;
 import com.eryuzhisen.android.model.RegisterModel;
 import com.na.mvp.presenters.NaBasePresenter;
 
@@ -66,6 +68,20 @@ public class RegisterPresenter extends NaBasePresenter<RegisterContract.View, Re
 
         if(this.view != null){
             this.view.onPicVcode(img);
+        }
+    }
+
+    @Subscribe
+    public  void onMsgVcodeEvent(MsgVcodeEvent event){
+        if(this.view != null){
+            this.view.onMsgVcode(event.isSuccess());
+        }
+    }
+
+    @Subscribe
+    public void onRegisterEvent(RegisterEvent event){
+        if(this.view != null){
+            this.view.onRegister(event.isSuccess());
         }
     }
 }

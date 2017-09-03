@@ -22,6 +22,8 @@ public interface RegisterContract {
     interface View extends NaContract.View{
         void onUpdate();
         void onPicVcode(byte[] img);
+        void onMsgVcode(boolean isSuccess);
+        void onRegister(boolean isSuccess);
     }
 
     interface Model extends NaContract.Model{

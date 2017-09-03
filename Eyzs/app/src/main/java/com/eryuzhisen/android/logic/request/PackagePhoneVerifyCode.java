@@ -1,6 +1,7 @@
 package com.eryuzhisen.android.logic.request;
 
 import com.eryuzhisen.android.logic.api.UrlData;
+import com.eryuzhisen.android.utils.StringUtils;
 import com.google.gson.Gson;
 
 /**
@@ -27,6 +28,14 @@ public class PackagePhoneVerifyCode {
 
         public void setVerifyType(String verifyType) {
             this.verifyType = verifyType;
+        }
+
+        public boolean isRegister() {
+            boolean flag = true;
+            if (!StringUtils.isEmpty(verifyType) && verifyType.equals("1")) {
+                flag = false;
+            }
+            return flag;
         }
 
         public String getPhoneNum() {
