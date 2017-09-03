@@ -1,4 +1,4 @@
-package com.eryuzhisen.android.model.bean;
+package com.eryuzhisen.android.logic.bean;
 
 /**
  * @actor:taotao

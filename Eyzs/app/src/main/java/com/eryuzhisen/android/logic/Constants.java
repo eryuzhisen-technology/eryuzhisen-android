@@ -14,4 +14,6 @@ public interface Constants {
     int CommandLogin = CommandPhoneVerifyCode + 1;
     int CommandRegister = CommandLogin + 1;
     int CommandResetPassword = CommandRegister + 1;
+
+    int CommamdGetUserInfo = CommandResetPassword + 1;
 }

@@ -1,6 +1,9 @@
 package com.eryuzhisen.android.logic.request;
 
+import android.content.pm.PackageInstaller;
+
 import com.eryuzhisen.android.EyzsApplication;
+import com.eryuzhisen.android.common.EyzsSession;
 import com.eryuzhisen.android.logic.api.UrlData;
 import com.eryuzhisen.android.utils.ApkUtils;
 import com.eryuzhisen.android.utils.SharePrefenceUtil;
@@ -32,9 +35,10 @@ public abstract class EyzsBaseReq extends LogicBaseReq {
     //  "client_type":"1",//客户端类型 1 ios 2 android 3 web
     //  "client_version":"xxxxxx",//后续升级版本使用
     private void initHeaders() {
-        String token = SharePrefenceUtil.getToken();
+        String token = EyzsSession.getSession().getToken();
         String clientType = "2";
         String clientVersion = ApkUtils.getAppVersionName(EyzsApplication.getApp());
+        String uid = EyzsSession.getSession().getUserId();
 
         Map headers = getHeaders();
 
@@ -42,6 +46,7 @@ public abstract class EyzsBaseReq extends LogicBaseReq {
             headers.put("token", token);
             headers.put("client_type", clientType);
             headers.put("client_version", clientVersion);
+            headers.put("uid", uid);
         }
     }
 

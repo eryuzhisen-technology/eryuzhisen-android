@@ -2,7 +2,9 @@ package com.eryuzhisen.android.logic;
 
 import android.os.Message;
 
-import com.eryuzhisen.android.event.PicVcodeEvent;
+import com.eryuzhisen.android.common.EyzsUserInfo;
+import com.eryuzhisen.android.logic.event.LoginEvent;
+import com.eryuzhisen.android.logic.event.PicVcodeEvent;
 import com.eryuzhisen.android.logic.api.EyzsApi;
 import com.eryuzhisen.android.logic.api.UrlData;
 import com.eryuzhisen.android.logic.request.PackageLogin;
@@ -52,7 +54,30 @@ public class LogicLogin extends CoreHandler {
         switch (msg.what) {
             case Constants.CommandLogin: {
                 isLogin = false;
-                PackageLogin.EyzsLoginResp resp = (PackageLogin.EyzsLoginResp) msg.obj;
+                boolean isSuc = false;
+                if(msg.obj != null) {
+                    PackageLogin.EyzsLoginResp resp = (PackageLogin.EyzsLoginResp) msg.obj;
+                    isSuc = resp.isSuccess();
+                    SharePrefenceUtil.setSession(resp.getToken(), resp.getDevice_no());
+                    if(!StringUtils.isEmpty(resp.getUid()) && resp.getUser() != null){
+                        String uid = resp.getUid();
+                        String nickName = resp.getUser().getNick_name();
+                        String avatar = resp.getUser().getAvatar_url();
+                        String gender = resp.getUser().getGender();
+                        String deviceNo = resp.getUser().getDevice_no();
+                        String signature = resp.getUser().getSignature();
+                        String age = resp.getUser().getC_age();
+                        EyzsUserInfo info = new EyzsUserInfo(uid, nickName, gender, avatar);
+                        info.setAge(age);
+                        info.setDeviceNo(deviceNo);
+                        info.setSignature(signature);
+                        SharePrefenceUtil.setUserInfo(info);
+                    }
+
+                }
+                LoginEvent event = new LoginEvent();
+                event.setSuccess(isSuc);
+                NaRxBus.getRxBus().post(event);
                 break;
             }
             case Constants.CommandRegister: {
@@ -72,6 +97,7 @@ public class LogicLogin extends CoreHandler {
                     event.setSuccess(true);
                     event.setPicVcode(resp.getPic_vcode());
                     event.setVcodeId(resp.getPic_vid());
+
                 }
                 NaRxBus.getRxBus().post(event);
                 break;
@@ -152,7 +178,7 @@ public class LogicLogin extends CoreHandler {
         req.setPhoneNum(phoneNum);
         req.setVerifyType(type);
         req.setPicVcode(picVcode);
-        req.setPicVcode(picVid);
+        req.setPicVid(picVid);
         OkHttp.getInstance().request(req);
     }
 

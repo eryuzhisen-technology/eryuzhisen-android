@@ -18,6 +18,7 @@ public abstract class BaseEntity {
     public static final int EntityType_LoginMsgVcode = 6;
     public static final int EntityType_LoginText = 7;
     public static final int EntityType_LoginButton = 8;
+    public static final int EntityType_SetButton = 9;
 
 
 
@@ -55,6 +56,10 @@ public abstract class BaseEntity {
             }
             case EntityType_LoginButton:{
                 holder = LoginButtonEntity.onCreateViewHolder(parent);
+                break;
+            }
+            case EntityType_SetButton:{
+                holder = SetButtonEntity.onCreateViewHolder(parent);
                 break;
             }
             default:{

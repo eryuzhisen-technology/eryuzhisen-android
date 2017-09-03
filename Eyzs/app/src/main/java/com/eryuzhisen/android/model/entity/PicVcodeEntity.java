@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.eryuzhisen.android.R;
-import com.eryuzhisen.android.event.PicVcodeEvent;
+import com.eryuzhisen.android.logic.event.PicVcodeEvent;
 import com.na.mvp.glide.NaGlide;
 
 /**

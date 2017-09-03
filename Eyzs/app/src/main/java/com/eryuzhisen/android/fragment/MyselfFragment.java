@@ -13,7 +13,7 @@ import com.eryuzhisen.android.widget.EyzsTitleView;
 import com.na.mvp.base.NaBaseFragment;
 
 
-public class MyselfFragment extends NaBaseFragment<MyselfFragmentPresenter> implements MyselfFragmentContract.View, View.OnClickListener{
+public class MyselfFragment extends NaBaseFragment<MyselfFragmentPresenter> implements MyselfFragmentContract.View{
     private EyzsTitleView etvTitle;
     private RecyclerView rlListView;
     private EyzsRecyclerViewAdpater mAdapter;
@@ -42,8 +42,19 @@ public class MyselfFragment extends NaBaseFragment<MyselfFragmentPresenter> impl
     @Override
     protected void onListener() {
         super.onListener();
-        etvTitle.setButton1ImageResource(R.mipmap.title_icon_share, this);
-        etvTitle.setButton2ImageResource(R.mipmap.title_icon_setting, this);
+        etvTitle.setButton1ImageResource(R.mipmap.title_icon_share, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        etvTitle.setButton2ImageResource(R.mipmap.icon_edit, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
@@ -51,10 +62,6 @@ public class MyselfFragment extends NaBaseFragment<MyselfFragmentPresenter> impl
         super.onDestroyView();
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 
     @Override
     public void onResume() {

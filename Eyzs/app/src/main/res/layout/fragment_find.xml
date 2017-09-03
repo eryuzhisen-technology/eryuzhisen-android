@@ -4,11 +4,37 @@
     android:layout_height="match_parent"
     tools:context="com.eryuzhisen.android.fragment.FindFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rlListView"
+    <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+        android:id="@+id/trLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <com.eryuzhisen.android.widget.EyzsTitleView
+            android:id="@+id/etvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.eryuzhisen.android.widget.EyzsSearchView
+            android:id="@+id/esView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etvTitle" />
+
+        <com.eryuzhisen.android.widget.EyzsBannerView
+            android:id="@+id/ebView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/esView" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ebView">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
 
 </RelativeLayout>

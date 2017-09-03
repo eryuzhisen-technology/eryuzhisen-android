@@ -1,4 +1,4 @@
-package com.eryuzhisen.android.event;
+package com.eryuzhisen.android.logic.event;
 
 import com.eryuzhisen.android.utils.Base64;
 import com.eryuzhisen.android.utils.StringUtils;
@@ -8,18 +8,9 @@ import com.eryuzhisen.android.utils.StringUtils;
  * @DATE: 2017/8/28
  */
 
-public class PicVcodeEvent {
-    private boolean isSuccess;
+public class PicVcodeEvent extends BaseEvent{
     private String vcodeId;
     private String picVcode;
-
-    public boolean isSuccess() {
-        return isSuccess;
-    }
-
-    public void setSuccess(boolean success) {
-        isSuccess = success;
-    }
 
     public void setVcodeId(String vcodeId) {
         this.vcodeId = vcodeId;

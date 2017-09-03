@@ -1,5 +1,7 @@
 package com.eryuzhisen.android.contract;
 
+import android.app.Activity;
+
 import com.na.mvp.contracts.NaContract;
 
 /**
@@ -9,7 +11,7 @@ import com.na.mvp.contracts.NaContract;
 
 public interface MainContract {
     interface Presenter extends NaContract.Presenter{
-
+        void checkLogin(Activity activity);
     }
 
     interface View extends NaContract.View{

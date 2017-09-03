@@ -53,6 +53,7 @@ public class EyzsTitleView extends RelativeLayout {
         ivLogo = (ImageView) this.findViewById(R.id.ivLogo);
         ivButton1 = (ImageView) this.findViewById(R.id.ivButton1);
         ivButton2 = (ImageView) this.findViewById(R.id.ivButton2);
+        ivLogo.setVisibility(GONE);
         ivButton1.setVisibility(GONE);
         ivButton2.setVisibility(GONE);
         ivLogo.setImageResource(R.mipmap.icon_brand);

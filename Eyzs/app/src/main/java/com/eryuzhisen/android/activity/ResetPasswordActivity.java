@@ -1,23 +1,38 @@
 package com.eryuzhisen.android.activity;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.eryuzhisen.android.R;
-import com.eryuzhisen.android.adapter.EyzsRecyclerViewAdpater;
 import com.eryuzhisen.android.contract.ResetPasswordContract;
-import com.eryuzhisen.android.decoration.LoginItemDecoration;
 import com.eryuzhisen.android.presenter.ResetPasswordPresenter;
-import com.eryuzhisen.android.utils.DensityUtils;
 import com.eryuzhisen.android.widget.EyzsSubTitleView;
 import com.na.mvp.base.NaBaseActivity;
 
-public class ResetPasswordActivity extends NaBaseActivity<ResetPasswordPresenter> implements  ResetPasswordContract.View{
+public class ResetPasswordActivity extends NaBaseActivity<ResetPasswordPresenter> implements ResetPasswordContract.View, View.OnClickListener {
+
 
     private EyzsSubTitleView estTitle;
-    private RecyclerView rlListView;
-    private EyzsRecyclerViewAdpater mAdapter;
+    private TextView tvSubTitle;
+    private TextView tvMsgcode;
+
+
+    private EditText getEtPhone() {
+        return (EditText) findViewById(R.id.etPhone);
+    }
+
+    private EditText getEtMsgVcode() {
+        return (EditText) findViewById(R.id.etMsgVcode);
+    }
+
+    private EditText getEtPassword() {
+        return (EditText) findViewById(R.id.etPassword);
+    }
+
+    private EditText getEtConfirmPassword() {
+        return (EditText) findViewById(R.id.etConfirmPassword);
+    }
 
     @Override
     protected int getContentId() {
@@ -33,25 +48,43 @@ public class ResetPasswordActivity extends NaBaseActivity<ResetPasswordPresenter
     protected void onInit() {
         super.onInit();
         estTitle = (EyzsSubTitleView) findViewById(R.id.estTitle);
-        rlListView = (RecyclerView) findViewById(R.id.rlListView);
-        estTitle.setTitleResId(R.string.get_password);
-        estTitle.setLeftButtonImageResource(R.mipmap.icon_back, new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        mAdapter = new EyzsRecyclerViewAdpater();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        rlListView.setLayoutManager(layoutManager);
-        rlListView.addItemDecoration(new LoginItemDecoration(DensityUtils.dip2px(this, 15)));
-        rlListView.setAdapter(mAdapter);
+
+        tvSubTitle = (TextView) findViewById(R.id.tvSubTitle);
+        tvMsgcode = (TextView) findViewById(R.id.tvMsgcode);
+        findViewById(R.id.tvButton).setOnClickListener(this);
     }
 
 
     @Override
     protected void onListener() {
         super.onListener();
+        estTitle.setLeftButtonImageResource(R.mipmap.icon_close, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        tvSubTitle.setOnClickListener(this);
+        tvMsgcode.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tvButton: {
+                break;
+            }
+            case R.id.tvSubTitle: {
+                finish();
+                break;
+            }
+            case R.id.tvMsgcode: {
+                break;
+            }
+            default: {
+                break;
+            }
+        }
     }
 
     @Override
@@ -63,7 +96,7 @@ public class ResetPasswordActivity extends NaBaseActivity<ResetPasswordPresenter
     protected void onResume() {
         super.onResume();
         if (presenter != null) {
-            presenter.updateData();
+
         }
     }
 
@@ -71,8 +104,7 @@ public class ResetPasswordActivity extends NaBaseActivity<ResetPasswordPresenter
     @Override
     public void onUpdate() {
         if (presenter != null) {
-            mAdapter.setData(presenter.getData());
-            mAdapter.notifyDataSetChanged();
+
         }
     }
 }

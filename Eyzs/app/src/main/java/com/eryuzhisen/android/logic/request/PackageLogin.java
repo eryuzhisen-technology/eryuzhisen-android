@@ -1,6 +1,7 @@
 package com.eryuzhisen.android.logic.request;
 
 import com.eryuzhisen.android.logic.api.UrlData;
+import com.eryuzhisen.android.logic.bean.EyzsUserBean;
 import com.google.gson.Gson;
 
 /**
@@ -81,7 +82,7 @@ public class PackageLogin {
         @Override
         public Object parseResponse(String json) {
             Gson gson = new Gson();
-            return gson.fromJson(json,EyzsLoginResp.class);
+            return gson.fromJson(json, EyzsLoginResp.class);
         }
     }
 
@@ -94,6 +95,24 @@ public class PackageLogin {
         private String token;
         private String device_no;
         private String info_status;
+        private String uid;
+        private EyzsUserBean user;
+
+        public EyzsUserBean getUser() {
+            return user;
+        }
+
+        public void setUser(EyzsUserBean user) {
+            this.user = user;
+        }
+
+        public String getUid() {
+            return uid;
+        }
+
+        public void setUid(String uid) {
+            this.uid = uid;
+        }
 
         public String getToken() {
             return token;

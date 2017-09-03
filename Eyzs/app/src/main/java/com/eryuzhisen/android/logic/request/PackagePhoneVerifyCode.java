@@ -58,7 +58,12 @@ public class PackagePhoneVerifyCode {
 
         public void setPicVid(String picVid) {
             this.picVid = picVid;
-            this.params.put("picVid", picVid);
+        }
+
+        @Override
+        public String getHttpEntity() {
+            Gson gson = new Gson();
+            return gson.toJson(this);
         }
 
         @Override

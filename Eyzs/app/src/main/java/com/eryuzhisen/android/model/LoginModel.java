@@ -2,7 +2,7 @@ package com.eryuzhisen.android.model;
 
 import com.eryuzhisen.android.R;
 import com.eryuzhisen.android.contract.LoginContract;
-import com.eryuzhisen.android.event.PicVcodeEvent;
+import com.eryuzhisen.android.logic.event.PicVcodeEvent;
 import com.eryuzhisen.android.logic.LogicLogin;
 import com.eryuzhisen.android.model.entity.LoginButtonEntity;
 import com.eryuzhisen.android.model.entity.LoginTextEntity;

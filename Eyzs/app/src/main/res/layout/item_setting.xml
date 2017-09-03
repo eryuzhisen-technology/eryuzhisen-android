@@ -42,20 +42,32 @@
 
     <TextView
         android:id="@+id/tvNum"
-        android:background="@drawable/shape_bg16_corner"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
+        android:background="@drawable/shape_bg16_corner"
         android:gravity="center"
         android:lines="1"
-        android:textStyle="bold"
+        android:minWidth="25dp"
         android:paddingLeft="7dp"
         android:paddingRight="7dp"
-        android:minWidth="25dp"
         android:text="0"
         android:textColor="@color/fontColor1"
-        android:textSize="@dimen/fontSize3" />
+        android:textSize="@dimen/fontSize3"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:lines="1"
+        android:layout_marginRight="15dp"
+        android:text="@string/app_name"
+        android:textColor="@color/fontColor3"
+        android:textSize="@dimen/fontSize5" />
 
 </RelativeLayout>

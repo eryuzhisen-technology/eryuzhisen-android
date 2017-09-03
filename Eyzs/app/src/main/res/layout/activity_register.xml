@@ -4,19 +4,290 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_login"
+    android:background="@color/bgColor4"
     tools:context="com.eryuzhisen.android.activity.RegisterActivity">
+
     <com.eryuzhisen.android.widget.EyzsSubTitleView
         android:id="@+id/estTitle"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rlListView"
-        android:layout_below="@id/estTitle"
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rlListView"-->
+    <!--android:layout_below="@id/estTitle"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <RelativeLayout
+        android:id="@+id/rlLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/estTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_bg3_corner">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/register_str"
+            android:textColor="@color/fontColor1"
+            android:textSize="@dimen/fontSize11"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="bottom"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="31dp"
+            android:text="@string/has_account"
+            android:textColor="@color/fontColor1"
+            android:textSize="@dimen/fontSize3" />
+
+        <LinearLayout
+            android:id="@+id/llLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlPhone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/tvLogin"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_loginbutton_selected">
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hint_phone"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="11"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/fontColor2"
+                    android:textColorHint="@color/fontColor4"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/fontSize5" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlPicture"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_loginbutton_selected"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:id="@+id/tvVcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:text="@string/get_pic_vcode"
+                    android:textColor="@color/fontColor2"
+                    android:textSize="@dimen/fontSize3" />
+
+                <ImageView
+                    android:id="@+id/ivVcodeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:minWidth="100dp"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/etPicVcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/ivVcodeImg"
+                    android:background="@null"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hint_picture"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="6"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/fontColor2"
+                    android:textColorHint="@color/fontColor4"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/fontSize5" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_loginbutton_selected">
+
+
+                <TextView
+                    android:id="@+id/tvMsgcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/get_vcode"
+                    android:textColor="@color/fontColor2"
+                    android:textSize="@dimen/fontSize3" />
+
+                <EditText
+                    android:id="@+id/etMsgVcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/tvMsgcode"
+                    android:background="@null"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hint_msg_vcode"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="6"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/fontColor2"
+                    android:textColorHint="@color/fontColor4"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/fontSize5" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_loginbutton_selected">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:maxLength="12"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/fontColor2"
+                    android:textColorHint="@color/fontColor4"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/fontSize5" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rlText"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_below="@+id/llLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:id="@+id/tvText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:lines="1"
+                android:text="@string/register_tip"
+                android:textColor="@color/fontColor3"
+                android:textSize="@dimen/fontSize3" />
+
+            <TextView
+                android:id="@+id/tvUserAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tvText1"
+                android:lines="1"
+                android:padding="5dp"
+                android:text="@string/user_agreement"
+                android:textColor="@color/fontColor1"
+                android:textSize="@dimen/fontSize3" />
+
+            <TextView
+                android:id="@+id/tvText2"
+                android:layout_toRightOf="@id/tvUserAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:lines="1"
+                android:text="@string/and"
+                android:textColor="@color/fontColor3"
+                android:textSize="@dimen/fontSize3" />
+
+            <TextView
+                android:id="@+id/tvPrivacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tvText2"
+                android:lines="1"
+                android:padding="5dp"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/fontColor1"
+                android:textSize="@dimen/fontSize3" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/tvButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        android:lineSpacingExtra="5dp"
+        android:text="@string/immediately_register"
+        android:textAlignment="center"
+        android:textColor="@color/fontColor1"
+        android:textSize="@dimen/fontSize6" />
 
 
 </RelativeLayout>

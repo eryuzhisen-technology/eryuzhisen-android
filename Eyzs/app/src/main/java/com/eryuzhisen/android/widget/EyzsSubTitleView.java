@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.eryuzhisen.android.R;
+import com.eryuzhisen.android.utils.StringUtils;
 
 /**
  * @actor:taotao
@@ -47,8 +48,10 @@ public class EyzsSubTitleView extends RelativeLayout {
     }
 
     public void setTitleText(String text) {
-        if (!TextUtils.isEmpty(text)) {
+        if (!StringUtils.isEmpty(text)) {
             tvTitle.setText(text);
+        } else {
+            tvTitle.setText("");
         }
     }
 

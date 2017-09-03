@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgColor5"
+    android:background="@color/bgColor4"
     tools:context="com.eryuzhisen.android.activity.MainActivity">
 
     <LinearLayout
@@ -21,63 +21,117 @@
     <RelativeLayout
         android:id="@+id/rlMain"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/black">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:id="@+id/llMain"
             android:layout_width="match_parent"
-            android:layout_height="49dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/ivFind"
+            <RelativeLayout
+                android:id="@+id/rlFind"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@mipmap/main_icon_find" />
+                android:background="@color/black">
 
-            <ImageView
-                android:id="@+id/ivCollect"
+                <ImageView
+                    android:id="@+id/ivFind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/main_icon_find" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlCollect"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@mipmap/main_icon_collect" />
+                android:background="@color/black">
+
+                <ImageView
+                    android:id="@+id/ivCollect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/main_icon_collect" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rlWritting"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_weight="1">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/black" />
+
                 <ImageView
                     android:id="@+id/ivWriting"
                     android:layout_width="60dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="50dp"
                     android:layout_centerInParent="true"
-                    android:background="@color/bgColor7"
+                    android:background="@drawable/shape_bg6_corner2"
                     android:scaleType="centerInside"
                     android:src="@mipmap/main_icon_writing" />
             </RelativeLayout>
 
-
-            <ImageView
-                android:id="@+id/ivMsg"
+            <RelativeLayout
+                android:id="@+id/rlMsg"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@mipmap/main_icon_msg" />
+                android:background="@color/black">
 
-            <ImageView
-                android:id="@+id/ivMe"
+                <ImageView
+                    android:id="@+id/ivMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/main_icon_msg" />
+
+                <View
+                    android:id="@+id/vMsgNum"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_above="@+id/ivMsg"
+                    android:layout_marginBottom="-6dp"
+                    android:layout_marginLeft="-6dp"
+                    android:layout_toRightOf="@+id/ivMsg"
+                    android:background="@drawable/shape_circle_bg10" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlMe"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="49dp"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@mipmap/main_icon_me" />
+                android:background="@color/black">
+
+                <ImageView
+                    android:id="@+id/ivMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/main_icon_me" />
+            </RelativeLayout>
         </LinearLayout>
 
     </RelativeLayout>

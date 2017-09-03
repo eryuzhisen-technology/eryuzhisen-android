@@ -1,8 +1,6 @@
 package com.eryuzhisen.android.logic.request;
 
 import com.eryuzhisen.android.logic.api.UrlData;
-import com.eryuzhisen.android.model.bean.EyzsUserBean;
-import com.eryuzhisen.android.utils.StringUtils;
 import com.google.gson.Gson;
 
 /**

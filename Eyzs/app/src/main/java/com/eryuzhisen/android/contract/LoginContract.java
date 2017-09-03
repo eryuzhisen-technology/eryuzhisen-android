@@ -13,10 +13,13 @@ public interface LoginContract {
     interface Presenter extends NaContract.Presenter{
         List getData();
         void updateData();
+
+        void login(String phone, String pwd);
     }
 
     interface View extends NaContract.View{
         void onUpdate();
+        void onLogin(boolean isSuc);
     }
 
     interface Model extends NaContract.Model{

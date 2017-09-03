@@ -1,7 +1,7 @@
 package com.eryuzhisen.android.logic.request;
 
 import com.eryuzhisen.android.logic.api.UrlData;
-import com.eryuzhisen.android.model.bean.BannerBean;
+import com.eryuzhisen.android.logic.bean.BannerBean;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -29,5 +29,9 @@ public class PackageBanner {
     public static class EyzsBannerResp extends EyzsBaseResp {
         private static final long serialVersionUID = 4777100921307842303L;
         private List<BannerBean> list;
+
+        public List<BannerBean> getList() {
+            return list;
+        }
     }
 }

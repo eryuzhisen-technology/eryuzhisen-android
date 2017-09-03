@@ -98,9 +98,11 @@ public class MainActivity extends NaBaseActivity<MainPresenter> implements MainC
     @Override
     public void onClick(View view) {
         String fragment = null;
+        boolean isCheckLogin = true;
         switch (view.getId()) {
             case R.id.ivFind: {
                 fragment = FragmentFind;
+                isCheckLogin = false;
                 break;
             }
             case R.id.ivCollect: {
@@ -126,7 +128,11 @@ public class MainActivity extends NaBaseActivity<MainPresenter> implements MainC
         }
 
         onChangeFragment(fragment);
-        ActivityManager.getInstance().jumpToActivity(this, ActivityManager.login_signup);
+        if(isCheckLogin){
+            if(presenter != null){
+                presenter.checkLogin(this);
+            }
+        }
     }
 
     private void enterWriting() {

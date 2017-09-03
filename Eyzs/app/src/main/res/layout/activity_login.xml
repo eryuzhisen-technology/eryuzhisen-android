@@ -4,18 +4,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_login"
+    android:background="@color/bgColor4"
     tools:context="com.eryuzhisen.android.activity.LoginActivity">
+
     <com.eryuzhisen.android.widget.EyzsSubTitleView
         android:id="@+id/estTitle"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp" />
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rlListView"
-        android:layout_below="@id/estTitle"
+    <RelativeLayout
+        android:id="@+id/rlLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/estTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_bg3_corner">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/login"
+            android:textColor="@color/fontColor1"
+            android:textSize="@dimen/fontSize11"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="bottom"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="31dp"
+            android:text="@string/register_account"
+            android:textColor="@color/fontColor1"
+            android:textSize="@dimen/fontSize3" />
+
+        <RelativeLayout
+            android:id="@+id/rlPhone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tvLogin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_loginbutton_selected">
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:hint="@string/hint_phone"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="11"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/fontColor2"
+                android:textColorHint="@color/fontColor4"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/fontSize5" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rlPhone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_loginbutton_selected">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLength="12"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/fontColor2"
+                android:textColorHint="@color/fontColor4"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/fontSize5" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlPassword"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:lineSpacingExtra="5dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:text="@string/forgot_password"
+            android:textColor="@color/fontColor1"
+            android:textSize="@dimen/fontSize3" />
+
+        <RelativeLayout
+            android:id="@+id/rlThird"
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/rlPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:id="@+id/ivWechat"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/shape_circle_bg5"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_login_wechat" />
+
+            <ImageView
+                android:id="@+id/ivQq"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="45dp"
+                android:layout_toRightOf="@+id/ivWechat"
+                android:background="@drawable/shape_circle_bg5"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_login_qq" />
+
+            <ImageView
+                android:id="@+id/ivWeibo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="45dp"
+                android:layout_toRightOf="@+id/ivQq"
+                android:background="@drawable/shape_circle_bg5"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_login_weibo" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/tvButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:textAlignment="center"
+        android:textColor="@color/fontColor1"
+        android:text="@string/immediately_login"
+        android:layout_alignParentBottom="true"
+        android:lineSpacingExtra="5dp"
+        android:textSize="@dimen/fontSize6" />
 
 </RelativeLayout>

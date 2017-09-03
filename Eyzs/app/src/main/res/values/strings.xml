@@ -11,16 +11,19 @@
     <string name="my_writting">我的作品</string>
     <string name="inviting_friends">邀请好友</string>
 
-    <string name="give_mark">去评分</string>
+    <string name="give_mark">评论打分</string>
     <string name="feedback">意见反馈</string>
     <string name="support_and_help">支持和帮助</string>
-    <string name="join_qq_group">加入qq群：45851314</string>
+    <string name="writer_communion">作者交流</string>
+    <string name="qq_group">432769756</string>
     <string name="login_str">已有账号  立即登录</string>
     <string name="register_str">注册</string>
     <string name="register_account">注册账户</string>
     <string name="hint_phone">手机号</string>
     <string name="hint_password">密码</string>
     <string name="hint_picture">图形码</string>
+    <string name="hint_new_password">新密码</string>
+    <string name="hint_confirm_new_password">确认新密码</string>
     <string name="hint_msg_vcode">验证码</string>
     <string name="get_vcode">获取验证码</string>
     <string name="get_pic_vcode">获取图形码</string>
@@ -32,6 +35,15 @@
     <string name="forgot_password">忘记密码</string>
     <string name="get_password">找回密码</string>
     <string name="new_password">新密码</string>
+    <string name="login_app">登录耳语之森</string>
+    <string name="other_setting">其他设置</string>
+    <string name="has_account">已有账号</string>
+    <string name="register_tip">注册即表示同意</string>
+    <string name="user_agreement">用户协议</string>
+    <string name="and">和</string>
+    <string name="privacy_policy">隐私协议</string>
+    <string name="forgot_str">想起来了</string>
+    <string name="reset_password">重置密码</string>
 
 
 </resources>
